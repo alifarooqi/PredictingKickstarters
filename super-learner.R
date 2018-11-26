@@ -2,8 +2,8 @@ library(SuperLearner)
 library(fastDummies)
 
 ksdf = read.csv("cleaned-ks-data-more.csv", header = TRUE)
-data = dummy_cols(ksdf, select_columns = c("main_category", "category", "launched"))
-data = subset(data, select = c(-category, -main_category, -launched, -X.1, -X))
+data = dummy_cols(ksdf, select_columns = c("category", "launched"))
+data = subset(data, select = c(-category, -launched, -X.1, -X))
 
 predict_variable = data$state01
 
@@ -88,6 +88,7 @@ plot(boost.ksdf,i="success_ratio")
 plot(boost.ksdf,i="usd_goal_real")
 plot(boost.ksdf,i="duration")
 plot(boost.ksdf,i="country")
+plot(boost.ksdf, i="main_category")
 pred = predict(boost.ksdf, newdata=X_test, n.trees = 1000)
 pred = pred >= 0.5
 pred = pred == Y_test
