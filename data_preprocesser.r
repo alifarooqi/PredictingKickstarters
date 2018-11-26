@@ -16,7 +16,8 @@ endday = as.POSIXct(as.character(df$deadline), format="%Y-%m-%d")
 df$duration <- difftime(endday, startday, units='days') + 1
 
 #removing 
-df<- df[(df$state == "canceled" | df$state == "failed" | df$state == "live" ), ]
+df<- df[(df$state == "successful" | df$state == "failed" | df$state == "live" ), ]
 
 #write cleaned data to file 
 write.csv(df, file = "cleaned-ks-data.csv")
+
