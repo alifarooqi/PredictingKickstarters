@@ -1,7 +1,7 @@
 install.packages("SuperLearner")
 install.packages(c("caret", "glmnet", "randomForest", "ggplot2", "RhpcBLASctl"))
 
-ksdf = read.csv("D:\\horseracing\\HorseRacingHK\\cleaned-ks-data.csv", header = TRUE)
+ksdf = read.csv("cleaned-ks-data.csv", header = TRUE)
 data_without_live = subset(ksdf, ksdf$state != 'live')
 data_without_live$state = factor(data_without_live$state)
 
@@ -29,6 +29,9 @@ for (i in 1:nrow(data)){
 
 
 ################################################
+
+write.csv(data, file = "cleaned-ks-data-more.csv")
+
 
 
 data = dummy_cols(data, select_columns = c(country, main_category, category, launched))

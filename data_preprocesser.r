@@ -17,7 +17,8 @@ df$duration <- difftime(endday, startday, units='days') + 1
 
 #removing 
 df<- df[(df$state == "successful" | df$state == "failed" | df$state == "live" ), ]
+df<- df[(d$launched), ]
+
 
 #write cleaned data to file 
 write.csv(df, file = "cleaned-ks-data.csv")
-

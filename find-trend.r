@@ -3,7 +3,7 @@ library(ggplot2)
 library(pROC)
 
 # To be modified if using mac
-ksdf = read.csv("F:\\R\\PredictingKickstarters\\ks-projects-201801.csv", header = TRUE)
+ksdf = read.csv("ks-projects-201801.csv", header = TRUE)
 
 # Converting the launch and deadline Dates to correct format:
 ksdf$launch_date <- as.Date(ksdf$launched, "%Y-%m-%d")
