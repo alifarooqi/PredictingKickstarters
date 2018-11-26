@@ -86,3 +86,33 @@ trend
 
 #write trend data to file 
 write.csv(trend, file = "F:\\R\\PredictingKickstarters\\percentage-success-by-year.csv")
+
+
+# Sub-categories success % in each year
+all_years = sort(unique(ksdf$launch_year))[2:10]
+all_categories = sort(unique(ksdf$category))
+trend = data.frame(matrix(NA, nrow = length(all_categories), ncol = length(all_years)))
+row.names(trend) = all_categories
+idx = 1
+for (year in all_years){
+  dataOfTheYear = subset(ksdf,launch_year %in% c(year))
+  totalRecordsPerCategories = table(dataOfTheYear$category)
+  
+  successfulDataOfTheYear = subset(dataOfTheYear,state=="successful")
+  successfulRecordsPerCategories = table(successfulDataOfTheYear$category)
+  
+  subCats = unique(dataOfTheYear$category)
+  row.names(totalRecordsPerCategories) = subCats
+  subCats = unique(successfulDataOfTheYear$category)
+  row.names(successfulRecordsPerCategories) = subCats
+  
+  for (cat in subCats){
+    trend[cat, idx] = successfulRecordsPerCategories[cat]/totalRecordsPerCategories[cat]*100
+  }
+  names(trend)[idx] <- year
+  idx = idx+1
+}
+trend
+
+#write trend data to file 
+write.csv(trend, file = "F:\\R\\PredictingKickstarters\\subcategory-success-by-year.csv")
