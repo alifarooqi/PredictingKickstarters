@@ -1,41 +1,25 @@
 install.packages("SuperLearner")
 install.packages(c("caret", "glmnet", "randomForest", "ggplot2", "RhpcBLASctl"))
 
-ksdf = read.csv("cleaned-ks-data.csv", header = TRUE)
-data_without_live = subset(ksdf, ksdf$state != 'live')
+library(SuperLearner)
+library(fastDummies)
+
+ksdf_state = read.csv("cleaned-ks-data.csv", header = TRUE)
+data_without_live = subset(ksdf_state, ksdf_state$state != 'live')
 data_without_live$state = factor(data_without_live$state)
 
 state01 = rep(0, length(data_without_live$state))
 state01[data_without_live$state == 'successful'] = 1
-data = data.frame(data_without_live, state01)
+
+
+ksdf = read.csv("cleaned-ks-data-more.csv", header = TRUE)
+data = dummy_cols(ksdf, select_columns = c("country", "main_category", "category", "launched"))
+data = subset(data, select = c(-country, -category, -main_category, -launched, -X.1, -X))
+
+
 predict_variable = data$state01
-data = subset(data, select = c(-state, -state01))
 
-library(SuperLearner)
-library(fastDummies)
-
-data = subset(data, select = c(-name, -ID, -X, -deadline, -pledged, -backers, -usd_pledged_real, -currency))
-data$launched = substr(data$launched, 1,4)
-data$success_ratio = rep(0, nrow(data))
-
-
-################################################
-
-
-for (i in 1:nrow(data)){
-  data$success_ratio[i] = trend[data$main_category[i],data$launched[i]]
-}
-  
-
-
-################################################
-
-write.csv(data, file = "cleaned-ks-data-more.csv")
-
-
-
-data = dummy_cols(data, select_columns = c(country, main_category, category, launched))
-data = subset(data, select = c(-country, -category, -main_category, -launched))
+data = subset(data, select = -state01)
 
 train_obs = sample(nrow(data), 5000)
 X_train = data[train_obs, ]
