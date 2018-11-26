@@ -3,7 +3,9 @@
 title: "How to be successful on Kickstarter"
 author: "Ann Rajaram"
 date: "January 29, 2018"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -45,7 +47,7 @@ If you like this tutorial, feel free to fork the script. And dont forget to upvo
 ###a) Let us take a look at the input dataset :
 ```{r, include=TRUE, echo = FALSE}
 #system("ls ../input", intern=TRUE)
-ksdf <- data.frame(fread("../input/ks-projects-201801.csv"), 
+ksdf <- data.frame(fread("../ks-projects-201801.csv"), 
                      stringsAsFactors = F)
 
 str(ksdf)

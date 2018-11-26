@@ -1,0 +1,720 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={How to be successful on Kickstarter},
+            pdfauthor={Ann Rajaram},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{How to be successful on Kickstarter}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Ann Rajaram}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{January 29, 2018}
+
+
+\begin{document}
+\maketitle
+
+\subsection{}\label{section}
+
+In this tutorial, we will explore the characterisitcs of projects on
+Kickstarter and try to understand what separates the winners from the
+projects that failed to reach their funding goals.
+
+\subsection{\texorpdfstring{{Qs for Exploratory
+Analysis:}}{Qs for Exploratory Analysis:}}\label{qs-for-exploratory-analysis}
+
+We will start our analysis with the aim of answering the following
+questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  How many projects were successful on Kickstarter, by year and
+  category.
+\item
+  Which sub-categories raised the most amount of money?
+\item
+  Projects originate from which countries?
+\item
+  How many projects exceeded their funding goal by 50\% or more?
+\item
+  Did any projects reach \$100,000 or more? \$1,000,000 or higher?
+\item
+  What was the average amount contributed by each backer, and how does
+  this change over time? Does this amount differ with categories?
+\item
+  What is the average funding period?
+\end{enumerate}
+
+\subsection{\texorpdfstring{{Predicting success
+rates:}}{Predicting success rates:}}\label{predicting-success-rates}
+
+Using the answers from the above questions, we will try to create a
+model that can predict which projects are most likely to be successful.
+If you like this tutorial, feel free to fork the script. And dont forget
+to upvote the kernel! :)
+
+\subsection{\texorpdfstring{{Step1 - Data
+Pre-processing}}{Step1 - Data Pre-processing}}\label{step1---data-pre-processing}
+
+\subsubsection{a) Let us take a look at the input dataset
+:}\label{a-let-us-take-a-look-at-the-input-dataset}
+
+\begin{verbatim}
+## 'data.frame':    378661 obs. of  15 variables:
+##  $ ID              : int  1000002330 1000003930 1000004038 1000007540 1000011046 1000014025 1000023410 1000030581 1000034518 100004195 ...
+##  $ name            : chr  "The Songs of Adelaide & Abullah" "Greeting From Earth: ZGAC Arts Capsule For ET" "Where is Hank?" "ToshiCapital Rekordz Needs Help to Complete Album" ...
+##  $ category        : chr  "Poetry" "Narrative Film" "Narrative Film" "Music" ...
+##  $ main_category   : chr  "Publishing" "Film & Video" "Film & Video" "Music" ...
+##  $ currency        : chr  "GBP" "USD" "USD" "USD" ...
+##  $ deadline        : chr  "2015-10-09" "2017-11-01" "2013-02-26" "2012-04-16" ...
+##  $ goal            : num  1000 30000 45000 5000 19500 50000 1000 25000 125000 65000 ...
+##  $ launched        : chr  "2015-08-11 12:12:28" "2017-09-02 04:43:57" "2013-01-12 00:20:50" "2012-03-17 03:24:11" ...
+##  $ pledged         : num  0 2421 220 1 1283 ...
+##  $ state           : chr  "failed" "failed" "failed" "failed" ...
+##  $ backers         : int  0 15 3 1 14 224 16 40 58 43 ...
+##  $ country         : chr  "GB" "US" "US" "US" ...
+##  $ usd.pledged     : num  0 100 220 1 1283 ...
+##  $ usd_pledged_real: num  0 2421 220 1 1283 ...
+##  $ usd_goal_real   : num  1534 30000 45000 5000 19500 ...
+\end{verbatim}
+
+The projects are divided into main and sub-categories. The pledged
+amount ``usd\_pledged'' has an equivalent value converted to USD, called
+``usd\_pledged\_real''. However, the goal amount does not have this
+conversion. So for now, we will use the amounts as is.
+
+We can see how many people are backing each individual project using the
+column, ``backers''.
+
+\subsubsection{b) Now let us look at the first 5
+records:}\label{b-now-let-us-look-at-the-first-5-records}
+
+The name doesn't really indicate any specific pattern although it might
+be interesting to see if longer names have better success rates. Not
+pursuing that angle at this time, though.
+
+\begin{verbatim}
+##           ID                                                       name
+## 1 1000002330                            The Songs of Adelaide & Abullah
+## 2 1000003930              Greeting From Earth: ZGAC Arts Capsule For ET
+## 3 1000004038                                             Where is Hank?
+## 4 1000007540          ToshiCapital Rekordz Needs Help to Complete Album
+## 5 1000011046 Community Film Project: The Art of Neighborhood Filmmaking
+## 6 1000014025                                       Monarch Espresso Bar
+##         category main_category currency   deadline  goal
+## 1         Poetry    Publishing      GBP 2015-10-09  1000
+## 2 Narrative Film  Film & Video      USD 2017-11-01 30000
+## 3 Narrative Film  Film & Video      USD 2013-02-26 45000
+## 4          Music         Music      USD 2012-04-16  5000
+## 5   Film & Video  Film & Video      USD 2015-08-29 19500
+## 6    Restaurants          Food      USD 2016-04-01 50000
+##              launched pledged      state backers country usd.pledged
+## 1 2015-08-11 12:12:28       0     failed       0      GB           0
+## 2 2017-09-02 04:43:57    2421     failed      15      US         100
+## 3 2013-01-12 00:20:50     220     failed       3      US         220
+## 4 2012-03-17 03:24:11       1     failed       1      US           1
+## 5 2015-07-04 08:35:03    1283   canceled      14      US        1283
+## 6 2016-02-26 13:38:27   52375 successful     224      US       52375
+##   usd_pledged_real usd_goal_real
+## 1                0       1533.95
+## 2             2421      30000.00
+## 3              220      45000.00
+## 4                1       5000.00
+## 5             1283      19500.00
+## 6            52375      50000.00
+\end{verbatim}
+
+\subsubsection{c) Looking for missing
+values:}\label{c-looking-for-missing-values}
+
+Hurrah, a really clean dataset, even after searching for ``empty''
+strings. :)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Check for NAs:}
+\KeywordTok{sapply}\NormalTok{(ksdf, }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(x)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               ID             name         category    main_category 
+##                0                0                0                0 
+##         currency         deadline             goal         launched 
+##                0                0                0                0 
+##          pledged            state          backers          country 
+##                0                0                0                0 
+##      usd.pledged usd_pledged_real    usd_goal_real 
+##             3797                0                0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Check for empty strings:}
+\KeywordTok{nrow}\NormalTok{(}\KeywordTok{subset}\NormalTok{(ksdf, }\KeywordTok{is.na}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{name)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(}\KeywordTok{subset}\NormalTok{(ksdf, }\KeywordTok{is.na}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{category)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(}\KeywordTok{subset}\NormalTok{(ksdf, }\KeywordTok{is.na}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{main_category)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(}\KeywordTok{subset}\NormalTok{(ksdf, }\KeywordTok{is.na}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{state)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{d) Date Formatting and
+splitting:}{d) Date Formatting and splitting: }}\label{d-date-formatting-and-splitting}
+
+We have two dates in our dataset - ``launch date'' and ``deadline
+date''.We convert them from strings to date format. We also split these
+dates into the respective year and month columns, so that we can plot
+variations over time. So we will now have 4 new columns: launch\_year,
+launch\_month, deadline\_year and deadline\_month.
+
+\begin{verbatim}
+##           ID                                                       name
+## 1 1000002330                            The Songs of Adelaide & Abullah
+## 2 1000003930              Greeting From Earth: ZGAC Arts Capsule For ET
+## 3 1000004038                                             Where is Hank?
+## 4 1000007540          ToshiCapital Rekordz Needs Help to Complete Album
+## 5 1000011046 Community Film Project: The Art of Neighborhood Filmmaking
+##   main_category launch_year launch_mth final_year final_mth
+## 1    Publishing        2015    2015-08       2015   2015-10
+## 2  Film & Video        2017    2017-09       2017   2017-11
+## 3  Film & Video        2013    2013-01       2013   2013-02
+## 4         Music        2012    2012-03       2012   2012-04
+## 5  Film & Video        2015    2015-07       2015   2015-08
+\end{verbatim}
+
+\subsection{\texorpdfstring{{Exploratory
+analysis:}}{Exploratory analysis:}}\label{exploratory-analysis}
+
+\subsubsection{a) How many projects are
+successful?}\label{a-how-many-projects-are-successful}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{prop.table}\NormalTok{(}\KeywordTok{table}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{state))}\OperatorTok{*}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   canceled     failed       live successful  suspended  undefined 
+## 10.2410864 52.2153060  0.7391836 35.3762336  0.4875073  0.9406831
+\end{verbatim}
+
+We see that ``failed'' and ``successful'' are the two main categories,
+comprising \textasciitilde{}88\% of our dataset. Sadly we do not know
+why some projects are marked ``undefined'' or ``canceled''. ``live''"
+projects are those where the deadlines have not yet passed, although a
+few among them are already achieved their goal. Surprisingly, some
+`canceled' projects had also met their goals (pledged\_amount
+\textgreater{}= goal). Since these other categories are a very small
+portion of the dataset, we will subset and only consider records with
+satus ``failed'' or ``successful'' for the rest of the analysis.
+
+\subsubsection{b) How many countries have projects on
+kickstarter?}\label{b-how-many-countries-have-projects-on-kickstarter}
+
+\begin{verbatim}
+## 
+##     AT     AU     BE     CA     CH     DE     DK     ES     FR     GB 
+##    485   6616    523  12370    652   3436    926   1873   2520  29454 
+##     HK     IE     IT     JP     LU     MX  N,0""     NL     NO     NZ 
+##    477    683   2369     23     57   1411    210   2411    582   1274 
+##     SE     SG     US 
+##   1509    454 261360
+\end{verbatim}
+
+We see projects are overwhelmingly US. Some country names have the tag
+N,0``'', so marking them as unknown.
+
+\subsubsection{c) Number of projects launched per
+year:}\label{c-number-of-projects-launched-per-year}
+
+\begin{verbatim}
+## 
+##  2009  2010  2011  2012  2013  2014  2015  2016  2017 
+##  1179  9577 24049 38480 41101 59306 65272 49292 43419
+\end{verbatim}
+
+Looks like some records say dates like 1970, which does not look right.
+So we discard any records with a launch / deadline year before 2009.
+Plotting the counts per year on a graphs: \textless{} br
+/\textgreater{}From the graph below, it looks like the count of projects
+peaked in 2015, then went down. However, this should NOT be taken as an
+indicator of success rates.
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Drilling down a bit more to see count of projects by main\_category.
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-12-1.pdf}
+Over the years, maximum number of projects have been in the categories:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Film \& Video
+\item
+  Music
+\item
+  Publishing
+\end{enumerate}
+
+\subsubsection{d) Number of projects by sub-category: (Top 20
+only)}\label{d-number-of-projects-by-sub-category-top-20-only}
+
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-13-1.pdf}
+The Top 5 sub-categories are:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Product Design
+\item
+  Documentary
+\item
+  Music
+\item
+  Tabletop Games (interesting!!!)
+\item
+  Shorts (really?! )
+\end{enumerate}
+
+ Let us now see ``Status'' of projects for these Top 5 sub\_categories:
+From the graph below, we see that for category ``shorts'' and ``tabletop
+games'' there are more successfull projects than failed ones.
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\subsubsection{e) Backers by category and
+sub-category:}\label{e-backers-by-category-and-sub-category}
+
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+ Since there are a lot of sub-categories, let us explore the
+sub-categories under the main theme ``Design''
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+Product design is not just the sub-category with the highest count of
+projects, but also the category with the highest success ratio.
+
+\subsubsection{f) add flag to see how many got funded more than the
+goal.}\label{f-add-flag-to-see-how-many-got-funded-more-than-the-goal.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ksdf}\OperatorTok{$}\NormalTok{goal_flag <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{pledged }\OperatorTok{>=}\StringTok{ }\NormalTok{ksdf}\OperatorTok{$}\NormalTok{goal, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\KeywordTok{prop.table}\NormalTok{(}\KeywordTok{table}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{goal_flag))}\OperatorTok{*}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##        0        1 
+## 59.61197 40.38803
+\end{verbatim}
+
+So \textasciitilde{}40\% of projects reached or surpassed their goal,
+which matches the number of successful projects .
+
+\subsubsection{g) Calculate average contribution per
+backer:}\label{g-calculate-average-contribution-per-backer}
+
+From the mean, median and max values we quickly see that the median
+amount contributed by each backer is only \textasciitilde{}\$40 whereas
+the mean is higher due to the extreme positive values. The max amount by
+a single backer is \textasciitilde{}\$5000.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{contrib)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##     0.00    16.00    41.78    73.35    78.00 50000.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(n}\OperatorTok{$}\NormalTok{contrib, }\DataTypeTok{main =} \StringTok{"Histogram for number of contributors"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\subsubsection{h) Calculate reach\_ratio}\label{h-calculate-reach_ratio}
+
+ The amount per backer is a good start, but what if the goal amount
+itself is only \$1000? Then an average contribution per backer of \$50
+impies we only need 20 backers. So to better understand the probability
+of a project's success, we create a derived metric called
+``reach\_ratio''. This takes the average user contribution and compares
+it against the goal fund amount.
+
+\begin{verbatim}
+##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+##      0.00      0.16      0.75      6.17      2.16 166666.67
+\end{verbatim}
+
+ We see the median reach\_ratio is \textless{}1\%. Only in the third
+quartile do we even touch 2\%! Clearly most projects have a very low
+reach ratio. We could subset for ``successful'' projects only and check
+if the reach\_ratio is higher.
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\subsubsection{i) Number of days to achieve
+goal:}\label{i-number-of-days-to-achieve-goal}
+
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\subsection{\texorpdfstring{{Predictive
+Analystics:}}{Predictive Analystics:}}\label{predictive-analystics}
+
+We will apply a very simple decision tree algorithm to our dataset.
+Since we do not have a separate ``test'' set, we will split the input
+dataframe into 2 parts (70/30 split). We will use the smaller set to
+test the accuracy of out algorithm.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ksdf}\OperatorTok{$}\NormalTok{status =}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(ksdf}\OperatorTok{$}\NormalTok{state }\OperatorTok{==}\StringTok{ 'failed'}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\NormalTok{## 70% of the sample size}
+\NormalTok{smp_size <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(}\FloatTok{0.7} \OperatorTok{*}\StringTok{ }\KeywordTok{nrow}\NormalTok{(ksdf))}
+
+\NormalTok{## set the seed to make your partition reproductible}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{486}\NormalTok{)}
+\NormalTok{train_ind <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{seq_len}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(ksdf)), }\DataTypeTok{size =}\NormalTok{ smp_size)}
+
+\NormalTok{train <-}\StringTok{ }\NormalTok{ksdf[train_ind, ]}
+\NormalTok{test <-}\StringTok{ }\NormalTok{ksdf[}\OperatorTok{-}\NormalTok{train_ind, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tree)}
+\NormalTok{tree1 <-}\StringTok{ }\KeywordTok{tree}\NormalTok{(status }\OperatorTok{~}\StringTok{ }\NormalTok{goal }\OperatorTok{+}\StringTok{ }\NormalTok{reach_ratio }\OperatorTok{+}\StringTok{ }\NormalTok{category }\OperatorTok{+}\StringTok{ }\NormalTok{backers }\OperatorTok{+}\StringTok{ }\NormalTok{country }\OperatorTok{+}\StringTok{ }\NormalTok{launch_year , }\DataTypeTok{data =}\NormalTok{ train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in tree(status ~ goal + reach_ratio + category + backers + country
+## + : NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(tree1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Regression tree:
+## tree(formula = status ~ goal + reach_ratio + category + backers + 
+##     country + launch_year, data = train)
+## Variables actually used in tree construction:
+## [1] "backers"     "reach_ratio"
+## Number of terminal nodes:  9 
+## Residual mean deviance:  0.02429 = 5640 / 232200 
+## Distribution of residuals:
+##       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+## -0.9816000 -0.0006945 -0.0006945  0.0000000  0.0410400  0.9993000
+\end{verbatim}
+
+Taking a peek at the decision tree rules:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(tree1)}
+\KeywordTok{text}\NormalTok{(tree1 ,}\DataTypeTok{pretty =}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{how-to-raise-money-on-kickstarter_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tree1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## node), split, n, deviance, yval
+##       * denotes terminal node
+## 
+##  1) root 232172 55900.00 0.4039000  
+##    2) backers < 17.5 121911  9326.00 0.0834600  
+##      4) reach_ratio < 5.88118 107986    74.95 0.0006945 *
+##      5) reach_ratio > 5.88118 13925  2774.00 0.7253000  
+##       10) backers < 5.5 4723  1031.00 0.3218000  
+##         20) reach_ratio < 19.9667 2792     0.00 0.0000000 *
+##         21) reach_ratio > 19.9667 1931   323.50 0.7872000 *
+##       11) backers > 5.5 9202   580.00 0.9324000 *
+##    3) backers > 17.5 110261 20210.00 0.7583000  
+##      6) reach_ratio < 0.79672 40852 10190.00 0.5217000  
+##       12) backers < 128.5 16858    39.91 0.0023730 *
+##       13) backers > 128.5 23994  2413.00 0.8866000 *
+##      7) reach_ratio > 0.79672 69409  6383.00 0.8975000  
+##       14) backers < 35.5 20535  3836.00 0.7514000  
+##         28) reach_ratio < 2.85458 4816     0.00 0.0000000 *
+##         29) reach_ratio > 2.85458 15719   284.60 0.9816000 *
+##       15) backers > 35.5 48874  1924.00 0.9590000 *
+\end{verbatim}
+
+Re-applying the tree rules to the training set itself, we can validate
+our model:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Predt <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(tree1, train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in pred1.tree(object, tree.matrix(newdata)): NAs introduced by
+## coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{validf <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{( }\DataTypeTok{kickstarter_id =}\NormalTok{ train}\OperatorTok{$}\NormalTok{ID, }\DataTypeTok{orig_status =}\NormalTok{ train}\OperatorTok{$}\NormalTok{status, }\DataTypeTok{new_status =}\NormalTok{ Predt)}
+\NormalTok{validf}\OperatorTok{$}\NormalTok{new =}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(validf}\OperatorTok{$}\NormalTok{new_status }\OperatorTok{<}\StringTok{ }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# contingency Tables:}
+\KeywordTok{table}\NormalTok{(validf}\OperatorTok{$}\NormalTok{orig_status, validf}\OperatorTok{$}\NormalTok{new)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    
+##          0      1
+##   0 132337   6051
+##   1    115  93669
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Area under the curve}
+\KeywordTok{library}\NormalTok{(pROC)}
+\KeywordTok{auc}\NormalTok{(validf}\OperatorTok{$}\NormalTok{orig_status, validf}\OperatorTok{$}\NormalTok{new)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Area under the curve: 0.9775
+\end{verbatim}
+
+From the above tables, we see that the error rate = \textasciitilde{}3\%
+and area under curve \textgreater{}= 97\%
+
+Finally applying the tree rules to the test set, we get the following
+stats:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Pred1 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(tree1, test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in pred1.tree(object, tree.matrix(newdata)): NAs introduced by
+## coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chkdf <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{( }\DataTypeTok{kickstarter_id =}\NormalTok{ test}\OperatorTok{$}\NormalTok{ID, }\DataTypeTok{orig_status =}\NormalTok{ test}\OperatorTok{$}\NormalTok{status, }\DataTypeTok{new_status =}\NormalTok{ Pred1)}
+\NormalTok{chkdf}\OperatorTok{$}\NormalTok{new =}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(chkdf}\OperatorTok{$}\NormalTok{new_status }\OperatorTok{<}\StringTok{ }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# contingency Tables:}
+\KeywordTok{table}\NormalTok{(chkdf}\OperatorTok{$}\NormalTok{orig_status, chkdf}\OperatorTok{$}\NormalTok{new)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    
+##         0     1
+##   0 56771  2560
+##   1    42 40130
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Area under the curve}
+\KeywordTok{library}\NormalTok{(pROC)}
+\KeywordTok{auc}\NormalTok{(chkdf}\OperatorTok{$}\NormalTok{orig_status, chkdf}\OperatorTok{$}\NormalTok{new)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Area under the curve: 0.9779
+\end{verbatim}
+
+From the above tables, we see that still the error rate =
+\textasciitilde{}3\% and area under curve \textgreater{}= 97\%
+
+\subsection{\texorpdfstring{{Conclustion:}}{Conclustion:}}\label{conclustion}
+
+Thus in this tutorial, we explored the factors that contribtue to a
+project's success. Main theme and sub-category were important, but the
+number of backers and ``reach\_ratio'' were found to be most critical.
+If a founder wanted to gauge their probability of success, they could
+measure their ``reach-ratio'' halfway to the deadline, or perhaps when
+25\% of the timeline is complete. If the numbers are lower, it means
+they need to double down and use promotions/social media marketing to
+get more backers and funding.
+
+If you liked this tutorial, feel free to fork the script. And dont
+forget to upvote the kernel! :)
+
+
+\end{document}
