@@ -11,25 +11,19 @@ data = data.frame(data_without_live, state01)
 predict_variable = data$state01
 data = subset(data, select = c(-state, -state01))
 
-train_obs = sample(nrow(data), 200)
+library(SuperLearner)
+library(fastDummies)
+
+data = subset(data, select = c(-name, -ID, -X, -deadline, -launched, -pledged, -backers, -usd_pledged_real, -currency))
+data = dummy_cols(data)
+data = subset(data, select = c(-country, -category, -main_category))
+
+train_obs = sample(nrow(data), 5000)
 X_train = data[train_obs, ]
 X_test = data[-train_obs, ]
 Y_train = predict_variable[train_obs]
 Y_test = predict_variable[-train_obs]
-table(Y_train, useNA = "ifany")
-library(SuperLearner)
 
-data = subset(data, select = c(-name, -ID, -X, -deadline, -launched, -pledged, -backers, -usd_pledged_real, -currency))
-
-install.packages('fastDummies')
-library(fastDummies)
-
-data = dummy_cols(data)
-data = subset(data, select = c(-country, -category, -main_category))
-
-data$country = as.numeric(data$country)
-data$category = as.numeric(data$category)
-data$main_category = as.numeric(data$main_category)
 
 sl_rf = sl_rf = SuperLearner(Y = Y_train, X = X_train, family = binomial(),
                              SL.library = "SL.randomForest")
