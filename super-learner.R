@@ -93,3 +93,17 @@ pred = predict(boost.ksdf, newdata=X_test, n.trees = 1000)
 pred = pred >= 0.5
 pred = pred == Y_test
 sum(pred)/281675
+
+#Testing optimal threashold for predict
+thold = seq(0, 1, by=0.001)
+acc = rep(0, 1001)
+for (i in thold){
+  a = pred >= i
+  a = a == Y_test
+  acc[i*1000+1]=sum(a)/281675
+}
+plot(thold, acc, type="l")
+acc[which.max(acc)]
+thold[which.max(acc)]
+
+# RESULTS: Optimal threashold = 0.51, accuracy = 0.6875619 (Bummer!)
