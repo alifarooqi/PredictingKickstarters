@@ -9,7 +9,7 @@ We first train models and try to gain an initial understanding of the predictors
 https://www.kaggle.com/kemical/kickstarter-projects
 
 ## Language
-(R - v3.5.1)[https://www.r-project.org/]
+[R - v3.5.1](https://www.r-project.org/)
 
 ## Contributors
 * M. Ali Farooqi
